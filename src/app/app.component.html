@@ -1,0 +1,34 @@
+<div style="display: flex">
+  <div
+    style="width:200px;border-style: groove;
+height: 100vh;"
+  >
+    <input
+      [ngModel]="inputValue"
+      (ngModelChange)="onInputChange($event)"
+      style="width:60%"
+      type="number"
+    />
+  </div>
+  <div
+    style="width:100%;border-style: groove;
+height: 100vh;"
+  >
+    <select
+      #mySelect
+      [ngModel]="selectType"
+      (change)="onSelectTypeChange(mySelect.value)"
+      name="type"
+      id="type"
+    >
+      <option value="0">isPrime</option>
+      <option value="1">isFibonacci</option>
+    </select>
+  </div>
+  <div
+    style="width:300px;border-style: groove;
+height: 100vh;"
+  >
+    {{ this.result }}
+  </div>
+</div>
