@@ -9,6 +9,7 @@ export class AppComponent {
   inputValue = null;
   selectType = '0';
   result = null;
+   cache = {};
   onInputChange(val: number) {
     this.inputValue = val;
     this.result = !this.inputValue
@@ -42,6 +43,21 @@ export class AppComponent {
   }
 
   isFibonacci(n) {
-    return n > 2;
+    const fn = this.fibonacci(n);
+    if(fn){
+      return fn[fn.length-1 + fn.length-2]=== fn[fn.length]? true:false;
+    }
+    return fn;
   }
+   fibonacci = n => {
+    if (n === 1) {
+       return [0, 1];
+    } else {
+      var arr = this.fibonacci(n - 1);
+      arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
+      return arr;
+    }
+    
+  };
+
 }
